@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="41fe5f9026ef4894940fa596c5eb2d38" Name="Diagram1" ZoomLevel="64" >
+        <EntityTypeShape EntityType="EntityDataModel.User" Width="1.5" PointX="6.625" PointY="1.125" FillColor="SteelBlue" />
+        <EntityTypeShape EntityType="EntityDataModel.Customer" PointX="0.875" PointY="6.75" Width="1.5" FillColor="Brown" />
+        <EntityTypeShape EntityType="EntityDataModel.Project" PointX="5.75" PointY="6.75" Width="1.5" FillColor="Brown" />
+        <AssociationConnector Association="EntityDataModel.CustomerProject" />
+        <EntityTypeShape EntityType="EntityDataModel.Invoice" Width="1.5" PointX="8.75" PointY="6.75" FillColor="Chocolate" />
+        <EntityTypeShape EntityType="EntityDataModel.UserProject" PointX="3" PointY="2.5" Width="1.5" FillColor="Brown" />
+        <AssociationConnector Association="EntityDataModel.UserUserProject" />
+        <EntityTypeShape EntityType="EntityDataModel.Contract" Width="1.5" PointX="12.875" PointY="2.125" FillColor="Green" />
+        <EntityTypeShape EntityType="EntityDataModel.UserContract" Width="1.5" PointX="9.25" PointY="1.375" FillColor="Green" IsExpanded="true" />
+        <AssociationConnector Association="EntityDataModel.ProjectUserProject" />
+        <AssociationConnector Association="EntityDataModel.ContractUserContract" />
+        <AssociationConnector Association="EntityDataModel.UserUserContract" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="EntityDataModel.ProjectInvoice" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="EntityDataModel.ContractInvoice" ManuallyRouted="false" >
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

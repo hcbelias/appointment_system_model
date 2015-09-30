@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="EntityDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="EntityDataModelTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EntityDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="EntityDataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserSet" EntityType="EntityDataModel.User" />
+          <EntitySet Name="CustomerSet" EntityType="EntityDataModel.Customer" />
+          <EntitySet Name="ProjectSet" EntityType="EntityDataModel.Project" />
+          <AssociationSet Name="CustomerProject" Association="EntityDataModel.CustomerProject">
+            <End Role="Customer" EntitySet="CustomerSet" />
+            <End Role="Project" EntitySet="ProjectSet" />
+          </AssociationSet>
+          <EntitySet Name="InvoiceSet" EntityType="EntityDataModel.Invoice" />
+          <EntitySet Name="UserProjectSet" EntityType="EntityDataModel.UserProject" />
+          <AssociationSet Name="UserUserProject" Association="EntityDataModel.UserUserProject">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="UserProject" EntitySet="UserProjectSet" />
+          </AssociationSet>
+          <EntitySet Name="ContractSet" EntityType="EntityDataModel.Contract" />
+          <EntitySet Name="UserContractSet" EntityType="EntityDataModel.UserContract" />
+          <AssociationSet Name="ProjectUserProject" Association="EntityDataModel.ProjectUserProject">
+            <End Role="Project" EntitySet="ProjectSet" />
+            <End Role="UserProject" EntitySet="UserProjectSet" />
+          </AssociationSet>
+          <AssociationSet Name="ContractUserContract" Association="EntityDataModel.ContractUserContract">
+            <End Role="Contract" EntitySet="ContractSet" />
+            <End Role="UserContract" EntitySet="UserContractSet" />
+          </AssociationSet>
+          <AssociationSet Name="UserUserContract" Association="EntityDataModel.UserUserContract">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="UserContract" EntitySet="UserContractSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectInvoice" Association="EntityDataModel.ProjectInvoice">
+            <End Role="Project" EntitySet="ProjectSet" />
+            <End Role="Invoice" EntitySet="InvoiceSet" />
+          </AssociationSet>
+          <AssociationSet Name="ContractInvoice" Association="EntityDataModel.ContractInvoice">
+            <End Role="Contract" EntitySet="ContractSet" />
+            <End Role="Invoice" EntitySet="InvoiceSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="RG" Type="String" Nullable="false" />
+          <Property Name="CPF" Type="String" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <NavigationProperty Name="UserProject" Relationship="EntityDataModel.UserUserProject" FromRole="User" ToRole="UserProject" />
+          <NavigationProperty Name="UserContract" Relationship="EntityDataModel.UserUserContract" FromRole="User" ToRole="UserContract" />
+          <Property Name="Password" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="CNPJ" Type="String" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="EntityDataModel.CustomerProject" FromRole="Customer" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="true" />
+          <Property Name="EndDate" Type="DateTime" Nullable="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="EntityDataModel.CustomerProject" FromRole="Project" ToRole="Customer" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserProject" Relationship="EntityDataModel.ProjectUserProject" FromRole="Project" ToRole="UserProject" />
+          <NavigationProperty Name="Invoice" Relationship="EntityDataModel.ProjectInvoice" FromRole="Project" ToRole="Invoice" />
+        </EntityType>
+        <Association Name="CustomerProject">
+          <End Type="EntityDataModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="EntityDataModel.Project" Role="Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" />
+          <Property Name="Name" Nullable="false" Type="String" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="PaymentDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="EntityDataModel.ProjectInvoice" FromRole="Invoice" ToRole="Project" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contract" Relationship="EntityDataModel.ContractInvoice" FromRole="Invoice" ToRole="Contract" />
+          <Property Name="ContractId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EstimatedHours" Type="Int16" Nullable="true" />
+          <NavigationProperty Name="User" Relationship="EntityDataModel.UserUserProject" FromRole="UserProject" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="EstimatedValue" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="EntityDataModel.ProjectUserProject" FromRole="UserProject" ToRole="Project" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="UserUserProject">
+          <End Type="EntityDataModel.User" Role="User" Multiplicity="1" />
+          <End Type="EntityDataModel.UserProject" Role="UserProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProject">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="UserContract" Relationship="EntityDataModel.ContractUserContract" FromRole="Contract" ToRole="UserContract" />
+          <Property Name="CreatedAt" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Invoice" Relationship="EntityDataModel.ContractInvoice" FromRole="Contract" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="UserContract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Contract" Relationship="EntityDataModel.ContractUserContract" FromRole="UserContract" ToRole="Contract" />
+          <Property Name="ContractId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="EntityDataModel.UserUserContract" FromRole="UserContract" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="PartnershipOwner" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="ProjectUserProject">
+          <End Type="EntityDataModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="EntityDataModel.UserProject" Role="UserProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProject">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ContractUserContract">
+          <End Type="EntityDataModel.Contract" Role="Contract" Multiplicity="1" />
+          <End Type="EntityDataModel.UserContract" Role="UserContract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contract">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserContract">
+              <PropertyRef Name="ContractId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserUserContract">
+          <End Type="EntityDataModel.User" Role="User" Multiplicity="1" />
+          <End Type="EntityDataModel.UserContract" Role="UserContract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserContract">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProjectInvoice">
+          <End Type="EntityDataModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="EntityDataModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ContractInvoice">
+          <End Type="EntityDataModel.Contract" Role="Contract" Multiplicity="1" />
+          <End Type="EntityDataModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contract">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="ContractId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="EntityDataModel" />
+        <Alias Key="Target" Value="EntityDataModel.Store" />
+        <EntityContainerMapping CdmEntityContainer="EntityDataModelContainer" StorageEntityContainer="EntityDataModelTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
