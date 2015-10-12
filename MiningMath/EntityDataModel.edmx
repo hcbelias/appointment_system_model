@@ -40,13 +40,45 @@
             <End Role="User" EntitySet="UserSet" />
             <End Role="UserContract" EntitySet="UserContractSet" />
           </AssociationSet>
-          <AssociationSet Name="ProjectInvoice" Association="EntityDataModel.ProjectInvoice">
-            <End Role="Project" EntitySet="ProjectSet" />
-            <End Role="Invoice" EntitySet="InvoiceSet" />
-          </AssociationSet>
           <AssociationSet Name="ContractInvoice" Association="EntityDataModel.ContractInvoice">
             <End Role="Contract" EntitySet="ContractSet" />
             <End Role="Invoice" EntitySet="InvoiceSet" />
+          </AssociationSet>
+          <EntitySet Name="UserContributionSet" EntityType="EntityDataModel.UserContribution" />
+          <AssociationSet Name="UserUserContribution" Association="EntityDataModel.UserUserContribution">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="UserContribution" EntitySet="UserContributionSet" />
+          </AssociationSet>
+          <EntitySet Name="UserInvoiceSet" EntityType="EntityDataModel.UserInvoice" />
+          <AssociationSet Name="UserUserInvoice" Association="EntityDataModel.UserUserInvoice">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="UserInvoice" EntitySet="UserInvoiceSet" />
+          </AssociationSet>
+          <AssociationSet Name="InvoiceUserInvoice" Association="EntityDataModel.InvoiceUserInvoice">
+            <End Role="Invoice" EntitySet="InvoiceSet" />
+            <End Role="UserInvoice" EntitySet="UserInvoiceSet" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerInvoice" Association="EntityDataModel.CustomerInvoice">
+            <End Role="Customer" EntitySet="CustomerSet" />
+            <End Role="Invoice" EntitySet="InvoiceSet" />
+          </AssociationSet>
+          <EntitySet Name="MiningMathExpenditureSet" EntityType="EntityDataModel.MiningMathExpenditure" />
+          <AssociationSet Name="UserMiningMathExpenditure" Association="EntityDataModel.UserMiningMathExpenditure">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="MiningMathExpenditure" EntitySet="MiningMathExpenditureSet" />
+          </AssociationSet>
+          <EntitySet Name="UserTimesheetSet" EntityType="EntityDataModel.UserTimesheet" />
+          <AssociationSet Name="UserUserTimesheet" Association="EntityDataModel.UserUserTimesheet">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="UserTimesheet" EntitySet="UserTimesheetSet" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerUserTimesheet" Association="EntityDataModel.CustomerUserTimesheet">
+            <End Role="Customer" EntitySet="CustomerSet" />
+            <End Role="UserTimesheet" EntitySet="UserTimesheetSet" />
+          </AssociationSet>
+          <AssociationSet Name="InvoiceUserTimesheet" Association="EntityDataModel.InvoiceUserTimesheet">
+            <End Role="Invoice" EntitySet="InvoiceSet" />
+            <End Role="UserTimesheet" EntitySet="UserTimesheetSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
@@ -64,6 +96,12 @@
           <NavigationProperty Name="UserProject" Relationship="EntityDataModel.UserUserProject" FromRole="User" ToRole="UserProject" />
           <NavigationProperty Name="UserContract" Relationship="EntityDataModel.UserUserContract" FromRole="User" ToRole="UserContract" />
           <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="UserContribution" Relationship="EntityDataModel.UserUserContribution" FromRole="User" ToRole="UserContribution" />
+          <NavigationProperty Name="UserInvoice" Relationship="EntityDataModel.UserUserInvoice" FromRole="User" ToRole="UserInvoice" />
+          <Property Name="HourValueDefault" Type="Double" Nullable="false" />
+          <NavigationProperty Name="MiningMathExpenditure" Relationship="EntityDataModel.UserMiningMathExpenditure" FromRole="User" ToRole="MiningMathExpenditure" />
+          <Property Name="ShareHolderFund" Type="Double" Nullable="false" />
+          <NavigationProperty Name="UserTimesheet" Relationship="EntityDataModel.UserUserTimesheet" FromRole="User" ToRole="UserTimesheet" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -74,6 +112,8 @@
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
           <Property Name="CNPJ" Type="String" Nullable="false" />
           <NavigationProperty Name="Project" Relationship="EntityDataModel.CustomerProject" FromRole="Customer" ToRole="Project" />
+          <NavigationProperty Name="Invoice" Relationship="EntityDataModel.CustomerInvoice" FromRole="Customer" ToRole="Invoice" />
+          <NavigationProperty Name="UserTimesheet" Relationship="EntityDataModel.CustomerUserTimesheet" FromRole="Customer" ToRole="UserTimesheet" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -87,7 +127,6 @@
           <NavigationProperty Name="Customer" Relationship="EntityDataModel.CustomerProject" FromRole="Project" ToRole="Customer" />
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="UserProject" Relationship="EntityDataModel.ProjectUserProject" FromRole="Project" ToRole="UserProject" />
-          <NavigationProperty Name="Invoice" Relationship="EntityDataModel.ProjectInvoice" FromRole="Project" ToRole="Invoice" />
         </EntityType>
         <Association Name="CustomerProject">
           <End Type="EntityDataModel.Customer" Role="Customer" Multiplicity="1" />
@@ -111,10 +150,13 @@
           <Property Name="Name" Nullable="false" Type="String" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
           <Property Name="PaymentDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="Project" Relationship="EntityDataModel.ProjectInvoice" FromRole="Invoice" ToRole="Project" />
           <Property Name="ProjectId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Contract" Relationship="EntityDataModel.ContractInvoice" FromRole="Invoice" ToRole="Contract" />
           <Property Name="ContractId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserInvoice" Relationship="EntityDataModel.InvoiceUserInvoice" FromRole="Invoice" ToRole="UserInvoice" />
+          <NavigationProperty Name="Customer" Relationship="EntityDataModel.CustomerInvoice" FromRole="Invoice" ToRole="Customer" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserTimesheet" Relationship="EntityDataModel.InvoiceUserTimesheet" FromRole="Invoice" ToRole="UserTimesheet" />
         </EntityType>
         <EntityType Name="UserProject">
           <Key>
@@ -159,6 +201,7 @@
           <NavigationProperty Name="User" Relationship="EntityDataModel.UserUserContract" FromRole="UserContract" ToRole="User" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="PartnershipOwner" Type="Boolean" Nullable="false" />
+          <Property Name="StockPercentage" Type="Double" Nullable="false" />
         </EntityType>
         <Association Name="ProjectUserProject">
           <End Type="EntityDataModel.Project" Role="Project" Multiplicity="1" />
@@ -196,18 +239,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ProjectInvoice">
-          <End Type="EntityDataModel.Project" Role="Project" Multiplicity="1" />
-          <End Type="EntityDataModel.Invoice" Role="Invoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Project">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Invoice">
-              <PropertyRef Name="ProjectId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="ContractInvoice">
           <End Type="EntityDataModel.Contract" Role="Contract" Multiplicity="1" />
           <End Type="EntityDataModel.Invoice" Role="Invoice" Multiplicity="*" />
@@ -217,6 +248,151 @@
             </Principal>
             <Dependent Role="Invoice">
               <PropertyRef Name="ContractId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserContribution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="EntityDataModel.UserUserContribution" FromRole="UserContribution" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="Value" Type="Double" Nullable="false" />
+        </EntityType>
+        <Association Name="UserUserContribution">
+          <End Type="EntityDataModel.User" Role="User" Multiplicity="1" />
+          <End Type="EntityDataModel.UserContribution" Role="UserContribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserContribution">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserInvoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="EntityDataModel.UserUserInvoice" FromRole="UserInvoice" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Invoice" Relationship="EntityDataModel.InvoiceUserInvoice" FromRole="UserInvoice" ToRole="Invoice" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+          <Property Name="HourValue" Type="Double" Nullable="false" />
+          <Property Name="Currency" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="UserUserInvoice">
+          <End Type="EntityDataModel.User" Role="User" Multiplicity="1" />
+          <End Type="EntityDataModel.UserInvoice" Role="UserInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserInvoice">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InvoiceUserInvoice">
+          <End Type="EntityDataModel.Invoice" Role="Invoice" Multiplicity="1" />
+          <End Type="EntityDataModel.UserInvoice" Role="UserInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserInvoice">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerInvoice">
+          <End Type="EntityDataModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="EntityDataModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MiningMathExpenditure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="EntityDataModel.UserMiningMathExpenditure" FromRole="MiningMathExpenditure" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <Association Name="UserMiningMathExpenditure">
+          <End Type="EntityDataModel.User" Role="User" Multiplicity="1" />
+          <End Type="EntityDataModel.MiningMathExpenditure" Role="MiningMathExpenditure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MiningMathExpenditure">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserTimesheet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="User" Relationship="EntityDataModel.UserUserTimesheet" FromRole="UserTimesheet" ToRole="User" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="EntityDataModel.CustomerUserTimesheet" FromRole="UserTimesheet" ToRole="Customer" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="Hours" Type="Double" Nullable="false" />
+          <Property Name="Date" Type="Double" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Invoice" Relationship="EntityDataModel.InvoiceUserTimesheet" FromRole="UserTimesheet" ToRole="Invoice" />
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="UserUserTimesheet">
+          <End Type="EntityDataModel.User" Role="User" Multiplicity="1" />
+          <End Type="EntityDataModel.UserTimesheet" Role="UserTimesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTimesheet">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerUserTimesheet">
+          <End Type="EntityDataModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="EntityDataModel.UserTimesheet" Role="UserTimesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTimesheet">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InvoiceUserTimesheet">
+          <End Type="EntityDataModel.Invoice" Role="Invoice" Multiplicity="1" />
+          <End Type="EntityDataModel.UserTimesheet" Role="UserTimesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTimesheet">
+              <PropertyRef Name="InvoiceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
