@@ -4,36 +4,53 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="41fe5f9026ef4894940fa596c5eb2d38" Name="Diagram1" ZoomLevel="72" ShowGrid="true" >
-        <EntityTypeShape EntityType="EntityDataModel.User" Width="1.5" PointX="10.75" PointY="6.375" FillColor="170, 108, 57" />
-        <EntityTypeShape EntityType="EntityDataModel.Customer" PointX="17.25" PointY="1.25" Width="1.5" FillColor="34, 102, 102" />
-        <EntityTypeShape EntityType="EntityDataModel.Project" PointX="17.25" PointY="4.5" Width="1.5" FillColor="34, 102, 102" />
+      <Diagram DiagramId="41fe5f9026ef4894940fa596c5eb2d38" Name="MainDiagram" ZoomLevel="72" ShowGrid="true" >
+        <EntityTypeShape EntityType="EntityDataModel.User" Width="1.5" PointX="11" PointY="0.5" FillColor="170, 108, 57" />
+        <EntityTypeShape EntityType="EntityDataModel.Customer" PointX="21" PointY="3.75" Width="1.5" FillColor="34, 102, 102" />
+        <EntityTypeShape EntityType="EntityDataModel.Project" PointX="17.25" PointY="6.75" Width="1.5" FillColor="34, 102, 102" />
         <AssociationConnector Association="EntityDataModel.CustomerProject" />
-        <EntityTypeShape EntityType="EntityDataModel.Invoice" Width="1.5" PointX="3.25" PointY="0.5" FillColor="170, 57, 57" />
-        <EntityTypeShape EntityType="EntityDataModel.UserProject" PointX="17.25" PointY="7.875" Width="1.5" FillColor="34, 102, 102" />
-        <AssociationConnector Association="EntityDataModel.UserUserProject" />
-        <EntityTypeShape EntityType="EntityDataModel.Contract" Width="1.5" PointX="0.625" PointY="10.125" FillColor="45, 136, 45" />
-        <EntityTypeShape EntityType="EntityDataModel.UserContract" Width="1.5" PointX="4" PointY="9.875" FillColor="45, 136, 45" IsExpanded="true" />
-        <AssociationConnector Association="EntityDataModel.ProjectUserProject" />
-        <AssociationConnector Association="EntityDataModel.ContractUserContract" />
-        <AssociationConnector Association="EntityDataModel.UserUserContract" ManuallyRouted="false" >
-        </AssociationConnector>
-        <AssociationConnector Association="EntityDataModel.ContractInvoice" ManuallyRouted="false" >
-        </AssociationConnector>
-        <EntityTypeShape EntityType="EntityDataModel.UserContribution" Width="2.75" PointX="2.75" PointY="7.375" FillColor="45, 136, 45" />
-        <AssociationConnector Association="EntityDataModel.UserUserContribution" />
-        <EntityTypeShape EntityType="EntityDataModel.UserInvoice" Width="1.5" PointX="3.375" PointY="4.625" FillColor="170, 57, 57" />
-        <AssociationConnector Association="EntityDataModel.UserUserInvoice" />
+        <AssociationConnector Association="EntityDataModel.CurrencyUserProject" />
+        <AssociationConnector Association="EntityDataModel.CurrencyUserInvoice" />
+        <AssociationConnector Association="EntityDataModel.CurrencyUserContribution" />
+        <AssociationConnector Association="EntityDataModel.CurrencyMiningMathExpenditure" />
+      </Diagram>
+      <Diagram DiagramId="7791147f3a8f4181909138be8441f641" Name="CurrencyDiagram" >
+        <EntityTypeShape EntityType="EntityDataModel.Currency" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="EntityDataModel.CurrencyCotation" Width="1.5" PointX="3" PointY="0.875" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCurrencyCotation" />
+      </Diagram>
+      <Diagram DiagramId="8c5ec25f6a564ec6ba7304e0bdd5f77b" Name="ProjectPlanningDiagram" >
+        <EntityTypeShape EntityType="EntityDataModel.ProjectPlanning" Width="1.625" PointX="7.875" PointY="3.875" />
+        <EntityTypeShape EntityType="EntityDataModel.ProjectPlanningWorkingHours" Width="3.25" PointX="3.125" PointY="6.25" />
+        <AssociationConnector Association="EntityDataModel.ProjectPlanningProjectPlanningWorkingHours" />
+        <EntityTypeShape EntityType="EntityDataModel.Project" Width="1.5" PointX="11.875" PointY="2.625" FillColor="34, 102, 102" />
+        <AssociationConnector Association="EntityDataModel.ProjectProjectPlanning" />
+        <EntityTypeShape EntityType="EntityDataModel.Contract" Width="1.5" PointX="2.875" PointY="2.25" FillColor="45, 136, 45" />
+        <AssociationConnector Association="EntityDataModel.ContractProjectPlanning" />
+        <EntityTypeShape EntityType="EntityDataModel.ProjectPlanningExpenditure" Width="2.75" PointX="7.75" PointY="0.5" />
+        <AssociationConnector Association="EntityDataModel.ProjectPlanningProjectPlanningExpenditure" />
+      </Diagram>
+      <Diagram DiagramId="3ce328450ed4450d8304df69d1a3ebd0" Name="InvoiceDiagram" >
+        <EntityTypeShape EntityType="EntityDataModel.Invoice" Width="1.5" PointX="4.5" PointY="2" FillColor="170, 57, 57" />
+        <EntityTypeShape EntityType="EntityDataModel.UserInvoice" Width="1.5" PointX="9.875" PointY="0.625" FillColor="170, 57, 57" />
         <AssociationConnector Association="EntityDataModel.InvoiceUserInvoice" />
-        <AssociationConnector Association="EntityDataModel.CustomerInvoice" />
-        <EntityTypeShape EntityType="EntityDataModel.MiningMathExpenditure" Width="2.875" PointX="9.375" PointY="11.875" FillColor="170, 108, 57" />
-        <AssociationConnector Association="EntityDataModel.UserMiningMathExpenditure" ManuallyRouted="false" >
-        </AssociationConnector>
-        <EntityTypeShape EntityType="EntityDataModel.UserTimesheet" Width="1.5" PointX="10.75" PointY="2.5" FillColor="170, 57, 57" />
-        <AssociationConnector Association="EntityDataModel.UserUserTimesheet" />
-        <AssociationConnector Association="EntityDataModel.CustomerUserTimesheet" />
-        <AssociationConnector Association="EntityDataModel.InvoiceUserTimesheet" ManuallyRouted="false" >
-        </AssociationConnector>
+        <EntityTypeShape EntityType="EntityDataModel.UserTimesheet" Width="1.5" PointX="6.875" PointY="0.625" FillColor="170, 57, 57" />
+        <AssociationConnector Association="EntityDataModel.InvoiceUserTimesheet" />
+        <EntityTypeShape EntityType="EntityDataModel.Contract" Width="1.5" PointX="0.75" PointY="3.125" FillColor="45, 136, 45" />
+        <AssociationConnector Association="EntityDataModel.ContractInvoice" />
+        <EntityTypeShape EntityType="EntityDataModel.Project" Width="1.5" PointX="10.875" PointY="4.625" FillColor="34, 102, 102" />
+        <AssociationConnector Association="EntityDataModel.ProjectInvoice" />
+        <EntityTypeShape EntityType="EntityDataModel.InvoiceExpenditure" Width="2.5" PointX="1.75" PointY="6.625" FillColor="170, 57, 57" />
+        <AssociationConnector Association="EntityDataModel.InvoiceInvoiceExpenditure" />
+      </Diagram>
+      <Diagram DiagramId="ccc3299d861d4286b87e3a16bbefffdd" Name="ContractDiagram" >
+        <EntityTypeShape EntityType="EntityDataModel.UserContribution" Width="1.5" PointX="0.75" PointY="0.75" FillColor="45, 136, 45" />
+        <EntityTypeShape EntityType="EntityDataModel.UserContract" Width="1.5" PointX="7.75" PointY="0.5" FillColor="45, 136, 45" />
+        <EntityTypeShape EntityType="EntityDataModel.Contract" Width="1.5" PointX="6.375" PointY="5.875" FillColor="45, 136, 45" />
+        <AssociationConnector Association="EntityDataModel.ContractUserContract" />
+        <EntityTypeShape EntityType="EntityDataModel.User" Width="1.5" PointX="1.875" PointY="4.375" FillColor="170, 108, 57" />
+        <AssociationConnector Association="EntityDataModel.UserUserContract" />
+        <AssociationConnector Association="EntityDataModel.UserUserContribution" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
