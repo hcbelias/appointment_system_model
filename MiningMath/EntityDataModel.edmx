@@ -120,6 +120,7 @@
             <End Role="CurrencyCotation" EntitySet="CurrencyCotationSet" />
             <End Role="InvoiceExpenditure" EntitySet="InvoiceExpenditureSet" />
           </AssociationSet>
+          <EntitySet Name="InfNfseSet" EntityType="EntityDataModel.InfNfse" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -597,6 +598,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="InfNfse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

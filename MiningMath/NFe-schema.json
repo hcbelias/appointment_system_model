@@ -1,0 +1,874 @@
+﻿{
+   "$schema":"http://json-schema.org/draft-04/schema#",
+   "id":"http://jsonschema.net",
+   "type":"object",
+   "title":"Root schema.",
+   "description":"An explanation about the puropose of this instance described by this schema.",
+   "name":"/",
+   "properties":{
+      "CompNfse":{
+         "id":"http://jsonschema.net/CompNfse",
+         "type":"object",
+         "title":"CompNfse schema.",
+         "description":"An explanation about the puropose of this instance described by this schema.",
+         "name":"CompNfse",
+         "properties":{
+            "Nfse":{
+               "id":"http://jsonschema.net/CompNfse/Nfse",
+               "type":"object",
+               "title":"Nfse schema.",
+               "description":"An explanation about the puropose of this instance described by this schema.",
+               "name":"Nfse",
+               "properties":{
+                  "InfNfse":{
+                     "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse",
+                     "type":"object",
+                     "title":"InfNfse schema.",
+                     "description":"An explanation about the puropose of this instance described by this schema.",
+                     "name":"InfNfse",
+                     "properties":{
+                        "Numero":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Numero",
+                           "type":"string",
+                           "title":"Numero schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"Numero"
+                        },
+                        "CodigoVerificacao":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/CodigoVerificacao",
+                           "type":"string",
+                           "title":"CodigoVerificacao schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"CodigoVerificacao"
+                        },
+                        "DataEmissao":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/DataEmissao",
+                           "type":"string",
+                           "title":"DataEmissao schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"DataEmissao"
+                        },
+                        "NaturezaOperacao":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/NaturezaOperacao",
+                           "type":"string",
+                           "title":"NaturezaOperacao schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"NaturezaOperacao"
+                        },
+                        "OptanteSimplesNacional":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/OptanteSimplesNacional",
+                           "type":"string",
+                           "title":"OptanteSimplesNacional schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"OptanteSimplesNacional"
+                        },
+                        "IncentivadorCultural":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/IncentivadorCultural",
+                           "type":"string",
+                           "title":"IncentivadorCultural schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"IncentivadorCultural"
+                        },
+                        "Competencia":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Competencia",
+                           "type":"string",
+                           "title":"Competencia schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"Competencia"
+                        },
+                        "Servico":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico",
+                           "type":"object",
+                           "title":"Servico schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"Servico",
+                           "properties":{
+                              "Valores":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores",
+                                 "type":"object",
+                                 "title":"Valores schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"Valores",
+                                 "properties":{
+                                    "ValorServicos":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/ValorServicos",
+                                       "type":"string",
+                                       "title":"ValorServicos schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"ValorServicos"
+                                    },
+                                    "ValorPis":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/ValorPis",
+                                       "type":"string",
+                                       "title":"ValorPis schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"ValorPis"
+                                    },
+                                    "ValorCofins":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/ValorCofins",
+                                       "type":"string",
+                                       "title":"ValorCofins schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"ValorCofins"
+                                    },
+                                    "ValorIr":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/ValorIr",
+                                       "type":"string",
+                                       "title":"ValorIr schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"ValorIr"
+                                    },
+                                    "ValorCsll":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/ValorCsll",
+                                       "type":"string",
+                                       "title":"ValorCsll schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"ValorCsll"
+                                    },
+                                    "IssRetido":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/IssRetido",
+                                       "type":"string",
+                                       "title":"IssRetido schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"IssRetido"
+                                    },
+                                    "ValorIss":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/ValorIss",
+                                       "type":"string",
+                                       "title":"ValorIss schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"ValorIss"
+                                    },
+                                    "ValorIssRetido":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/ValorIssRetido",
+                                       "type":"string",
+                                       "title":"ValorIssRetido schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"ValorIssRetido"
+                                    },
+                                    "BaseCalculo":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/BaseCalculo",
+                                       "type":"string",
+                                       "title":"BaseCalculo schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"BaseCalculo"
+                                    },
+                                    "Aliquota":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/Aliquota",
+                                       "type":"string",
+                                       "title":"Aliquota schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Aliquota"
+                                    },
+                                    "ValorLiquidoNfse":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Valores/ValorLiquidoNfse",
+                                       "type":"string",
+                                       "title":"ValorLiquidoNfse schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"ValorLiquidoNfse"
+                                    }
+                                 }
+                              },
+                              "ItemListaServico":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/ItemListaServico",
+                                 "type":"string",
+                                 "title":"ItemListaServico schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"ItemListaServico"
+                              },
+                              "CodigoTributacaoMunicipio":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/CodigoTributacaoMunicipio",
+                                 "type":"string",
+                                 "title":"CodigoTributacaoMunicipio schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"CodigoTributacaoMunicipio"
+                              },
+                              "Discriminacao":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/Discriminacao",
+                                 "type":"string",
+                                 "title":"Discriminacao schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"Discriminacao"
+                              },
+                              "CodigoMunicipio":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/Servico/CodigoMunicipio",
+                                 "type":"string",
+                                 "title":"CodigoMunicipio schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"CodigoMunicipio"
+                              }
+                           }
+                        },
+                        "PrestadorServico":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico",
+                           "type":"object",
+                           "title":"PrestadorServico schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"PrestadorServico",
+                           "properties":{
+                              "IdentificacaoPrestador":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/IdentificacaoPrestador",
+                                 "type":"object",
+                                 "title":"IdentificacaoPrestador schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"IdentificacaoPrestador",
+                                 "properties":{
+                                    "Cnpj":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/IdentificacaoPrestador/Cnpj",
+                                       "type":"string",
+                                       "title":"Cnpj schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Cnpj"
+                                    },
+                                    "InscricaoMunicipal":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/IdentificacaoPrestador/InscricaoMunicipal",
+                                       "type":"string",
+                                       "title":"InscricaoMunicipal schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"InscricaoMunicipal"
+                                    }
+                                 }
+                              },
+                              "RazaoSocial":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/RazaoSocial",
+                                 "type":"string",
+                                 "title":"RazaoSocial schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"RazaoSocial"
+                              },
+                              "NomeFantasia":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/NomeFantasia",
+                                 "type":"string",
+                                 "title":"NomeFantasia schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"NomeFantasia"
+                              },
+                              "Endereco":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco",
+                                 "type":"object",
+                                 "title":"Endereco schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"Endereco",
+                                 "properties":{
+                                    "Endereco":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Endereco",
+                                       "type":"string",
+                                       "title":"Endereco schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Endereco"
+                                    },
+                                    "Numero":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Numero",
+                                       "type":"string",
+                                       "title":"Numero schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Numero"
+                                    },
+                                    "Bairro":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Bairro",
+                                       "type":"string",
+                                       "title":"Bairro schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Bairro"
+                                    },
+                                    "CodigoMunicipio":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/CodigoMunicipio",
+                                       "type":"string",
+                                       "title":"CodigoMunicipio schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"CodigoMunicipio"
+                                    },
+                                    "Uf":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Uf",
+                                       "type":"string",
+                                       "title":"Uf schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Uf"
+                                    },
+                                    "Cep":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Cep",
+                                       "type":"string",
+                                       "title":"Cep schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Cep"
+                                    }
+                                 }
+                              },
+                              "Contato":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/Contato",
+                                 "type":"object",
+                                 "title":"Contato schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"Contato",
+                                 "properties":{
+                                    "Telefone":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/Contato/Telefone",
+                                       "type":"string",
+                                       "title":"Telefone schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Telefone"
+                                    },
+                                    "Email":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/PrestadorServico/Contato/Email",
+                                       "type":"string",
+                                       "title":"Email schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Email"
+                                    }
+                                 }
+                              }
+                           }
+                        },
+                        "TomadorServico":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico",
+                           "type":"object",
+                           "title":"TomadorServico schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"TomadorServico",
+                           "properties":{
+                              "IdentificacaoTomador":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/IdentificacaoTomador",
+                                 "type":"object",
+                                 "title":"IdentificacaoTomador schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"IdentificacaoTomador",
+                                 "properties":{
+                                    "CpfCnpj":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/IdentificacaoTomador/CpfCnpj",
+                                       "type":"object",
+                                       "title":"CpfCnpj schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"CpfCnpj",
+                                       "properties":{
+                                          "Cnpj":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/IdentificacaoTomador/CpfCnpj/Cnpj",
+                                             "type":"string",
+                                             "title":"Cnpj schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"Cnpj"
+                                          }
+                                       }
+                                    },
+                                    "InscricaoMunicipal":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/IdentificacaoTomador/InscricaoMunicipal",
+                                       "type":"string",
+                                       "title":"InscricaoMunicipal schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"InscricaoMunicipal"
+                                    }
+                                 }
+                              },
+                              "RazaoSocial":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/RazaoSocial",
+                                 "type":"string",
+                                 "title":"RazaoSocial schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"RazaoSocial"
+                              },
+                              "Endereco":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/Endereco",
+                                 "type":"object",
+                                 "title":"Endereco schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"Endereco",
+                                 "properties":{
+                                    "Endereco":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Endereco",
+                                       "type":"string",
+                                       "title":"Endereco schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Endereco"
+                                    },
+                                    "Numero":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Numero",
+                                       "type":"string",
+                                       "title":"Numero schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Numero"
+                                    },
+                                    "Complemento":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Complemento",
+                                       "type":"string",
+                                       "title":"Complemento schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Complemento"
+                                    },
+                                    "Bairro":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Bairro",
+                                       "type":"string",
+                                       "title":"Bairro schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Bairro"
+                                    },
+                                    "CodigoMunicipio":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/CodigoMunicipio",
+                                       "type":"string",
+                                       "title":"CodigoMunicipio schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"CodigoMunicipio"
+                                    },
+                                    "Uf":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Uf",
+                                       "type":"string",
+                                       "title":"Uf schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Uf"
+                                    },
+                                    "Cep":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Cep",
+                                       "type":"string",
+                                       "title":"Cep schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Cep"
+                                    }
+                                 }
+                              }
+                           }
+                        },
+                        "OrgaoGerador":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/OrgaoGerador",
+                           "type":"object",
+                           "title":"OrgaoGerador schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"OrgaoGerador",
+                           "properties":{
+                              "CodigoMunicipio":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/OrgaoGerador/CodigoMunicipio",
+                                 "type":"string",
+                                 "title":"CodigoMunicipio schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"CodigoMunicipio"
+                              },
+                              "Uf":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/OrgaoGerador/Uf",
+                                 "type":"string",
+                                 "title":"Uf schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"Uf"
+                              }
+                           }
+                        },
+                        "_Id":{
+                           "id":"http://jsonschema.net/CompNfse/Nfse/InfNfse/_Id",
+                           "type":"string",
+                           "title":"_Id schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"_Id"
+                        }
+                     },
+                     "required":[
+                        "Numero",
+                        "CodigoVerificacao",
+                        "DataEmissao",
+                        "NaturezaOperacao",
+                        "OptanteSimplesNacional",
+                        "IncentivadorCultural",
+                        "Competencia",
+                        "Servico",
+                        "PrestadorServico",
+                        "TomadorServico",
+                        "OrgaoGerador",
+                        "_Id"
+                     ]
+                  },
+                  "Signature":{
+                     "id":"http://jsonschema.net/CompNfse/Nfse/Signature",
+                     "type":"array",
+                     "title":"Signature schema.",
+                     "description":"An explanation about the puropose of this instance described by this schema.",
+                     "name":"Signature",
+                     "items":[
+                        {
+                           "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0",
+                           "type":"object",
+                           "title":"0 schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"0",
+                           "properties":{
+                              "SignedInfo":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo",
+                                 "type":"object",
+                                 "title":"SignedInfo schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"SignedInfo",
+                                 "properties":{
+                                    "CanonicalizationMethod":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/CanonicalizationMethod",
+                                       "type":"object",
+                                       "title":"CanonicalizationMethod schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"CanonicalizationMethod",
+                                       "properties":{
+                                          "_Algorithm":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/CanonicalizationMethod/_Algorithm",
+                                             "type":"string",
+                                             "title":"_Algorithm schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"_Algorithm"
+                                          }
+                                       }
+                                    },
+                                    "SignatureMethod":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/SignatureMethod",
+                                       "type":"object",
+                                       "title":"SignatureMethod schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"SignatureMethod",
+                                       "properties":{
+                                          "_Algorithm":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/SignatureMethod/_Algorithm",
+                                             "type":"string",
+                                             "title":"_Algorithm schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"_Algorithm"
+                                          }
+                                       }
+                                    },
+                                    "Reference":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/Reference",
+                                       "type":"object",
+                                       "title":"Reference schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Reference",
+                                       "properties":{
+                                          "Transforms":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/Reference/Transforms",
+                                             "type":"object",
+                                             "title":"Transforms schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"Transforms",
+                                             "properties":{
+                                                "Transform":{
+                                                   "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/Reference/Transforms/Transform",
+                                                   "type":"object",
+                                                   "title":"Transform schema.",
+                                                   "description":"An explanation about the puropose of this instance described by this schema.",
+                                                   "name":"Transform",
+                                                   "properties":{
+                                                      "_Algorithm":{
+                                                         "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/Reference/Transforms/Transform/_Algorithm",
+                                                         "type":"string",
+                                                         "title":"_Algorithm schema.",
+                                                         "description":"An explanation about the puropose of this instance described by this schema.",
+                                                         "name":"_Algorithm"
+                                                      }
+                                                   }
+                                                }
+                                             }
+                                          },
+                                          "DigestMethod":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/Reference/DigestMethod",
+                                             "type":"object",
+                                             "title":"DigestMethod schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"DigestMethod",
+                                             "properties":{
+                                                "_Algorithm":{
+                                                   "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/Reference/DigestMethod/_Algorithm",
+                                                   "type":"string",
+                                                   "title":"_Algorithm schema.",
+                                                   "description":"An explanation about the puropose of this instance described by this schema.",
+                                                   "name":"_Algorithm"
+                                                }
+                                             }
+                                          },
+                                          "DigestValue":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/Reference/DigestValue",
+                                             "type":"string",
+                                             "title":"DigestValue schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"DigestValue"
+                                          },
+                                          "_URI":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignedInfo/Reference/_URI",
+                                             "type":"string",
+                                             "title":"_URI schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"_URI"
+                                          }
+                                       }
+                                    }
+                                 }
+                              },
+                              "SignatureValue":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/SignatureValue",
+                                 "type":"string",
+                                 "title":"SignatureValue schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"SignatureValue"
+                              },
+                              "KeyInfo":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/KeyInfo",
+                                 "type":"object",
+                                 "title":"KeyInfo schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"KeyInfo",
+                                 "properties":{
+                                    "X509Data":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/KeyInfo/X509Data",
+                                       "type":"object",
+                                       "title":"X509Data schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"X509Data",
+                                       "properties":{
+                                          "X509Certificate":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/KeyInfo/X509Data/X509Certificate",
+                                             "type":"string",
+                                             "title":"X509Certificate schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"X509Certificate"
+                                          }
+                                       }
+                                    }
+                                 }
+                              },
+                              "_xmlns":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/_xmlns",
+                                 "type":"string",
+                                 "title":"_xmlns schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"_xmlns"
+                              },
+                              "_Id":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/Signature/0/_Id",
+                                 "type":"string",
+                                 "title":"_Id schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"_Id"
+                              }
+                           }
+                        },
+                        {
+                           "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1",
+                           "type":"object",
+                           "title":"1 schema.",
+                           "description":"An explanation about the puropose of this instance described by this schema.",
+                           "name":"1",
+                           "properties":{
+                              "SignedInfo":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo",
+                                 "type":"object",
+                                 "title":"SignedInfo schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"SignedInfo",
+                                 "properties":{
+                                    "CanonicalizationMethod":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/CanonicalizationMethod",
+                                       "type":"object",
+                                       "title":"CanonicalizationMethod schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"CanonicalizationMethod",
+                                       "properties":{
+                                          "_Algorithm":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/CanonicalizationMethod/_Algorithm",
+                                             "type":"string",
+                                             "title":"_Algorithm schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"_Algorithm"
+                                          }
+                                       }
+                                    },
+                                    "SignatureMethod":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/SignatureMethod",
+                                       "type":"object",
+                                       "title":"SignatureMethod schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"SignatureMethod",
+                                       "properties":{
+                                          "_Algorithm":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/SignatureMethod/_Algorithm",
+                                             "type":"string",
+                                             "title":"_Algorithm schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"_Algorithm"
+                                          }
+                                       }
+                                    },
+                                    "Reference":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/Reference",
+                                       "type":"object",
+                                       "title":"Reference schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"Reference",
+                                       "properties":{
+                                          "Transforms":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/Reference/Transforms",
+                                             "type":"object",
+                                             "title":"Transforms schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"Transforms",
+                                             "properties":{
+                                                "Transform":{
+                                                   "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/Reference/Transforms/Transform",
+                                                   "type":"object",
+                                                   "title":"Transform schema.",
+                                                   "description":"An explanation about the puropose of this instance described by this schema.",
+                                                   "name":"Transform",
+                                                   "properties":{
+                                                      "_Algorithm":{
+                                                         "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/Reference/Transforms/Transform/_Algorithm",
+                                                         "type":"string",
+                                                         "title":"_Algorithm schema.",
+                                                         "description":"An explanation about the puropose of this instance described by this schema.",
+                                                         "name":"_Algorithm"
+                                                      }
+                                                   }
+                                                }
+                                             }
+                                          },
+                                          "DigestMethod":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/Reference/DigestMethod",
+                                             "type":"object",
+                                             "title":"DigestMethod schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"DigestMethod",
+                                             "properties":{
+                                                "_Algorithm":{
+                                                   "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/Reference/DigestMethod/_Algorithm",
+                                                   "type":"string",
+                                                   "title":"_Algorithm schema.",
+                                                   "description":"An explanation about the puropose of this instance described by this schema.",
+                                                   "name":"_Algorithm"
+                                                }
+                                             }
+                                          },
+                                          "DigestValue":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/Reference/DigestValue",
+                                             "type":"string",
+                                             "title":"DigestValue schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"DigestValue"
+                                          },
+                                          "_URI":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignedInfo/Reference/_URI",
+                                             "type":"string",
+                                             "title":"_URI schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"_URI"
+                                          }
+                                       }
+                                    }
+                                 }
+                              },
+                              "SignatureValue":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/SignatureValue",
+                                 "type":"string",
+                                 "title":"SignatureValue schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"SignatureValue"
+                              },
+                              "KeyInfo":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/KeyInfo",
+                                 "type":"object",
+                                 "title":"KeyInfo schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"KeyInfo",
+                                 "properties":{
+                                    "KeyValue":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/KeyInfo/KeyValue",
+                                       "type":"object",
+                                       "title":"KeyValue schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"KeyValue",
+                                       "properties":{
+                                          "RSAKeyValue":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/KeyInfo/KeyValue/RSAKeyValue",
+                                             "type":"object",
+                                             "title":"RSAKeyValue schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"RSAKeyValue",
+                                             "properties":{
+                                                "Modulus":{
+                                                   "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/KeyInfo/KeyValue/RSAKeyValue/Modulus",
+                                                   "type":"string",
+                                                   "title":"Modulus schema.",
+                                                   "description":"An explanation about the puropose of this instance described by this schema.",
+                                                   "name":"Modulus"
+                                                },
+                                                "Exponent":{
+                                                   "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/KeyInfo/KeyValue/RSAKeyValue/Exponent",
+                                                   "type":"string",
+                                                   "title":"Exponent schema.",
+                                                   "description":"An explanation about the puropose of this instance described by this schema.",
+                                                   "name":"Exponent"
+                                                }
+                                             }
+                                          }
+                                       }
+                                    },
+                                    "X509Data":{
+                                       "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/KeyInfo/X509Data",
+                                       "type":"object",
+                                       "title":"X509Data schema.",
+                                       "description":"An explanation about the puropose of this instance described by this schema.",
+                                       "name":"X509Data",
+                                       "properties":{
+                                          "X509Certificate":{
+                                             "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/KeyInfo/X509Data/X509Certificate",
+                                             "type":"string",
+                                             "title":"X509Certificate schema.",
+                                             "description":"An explanation about the puropose of this instance described by this schema.",
+                                             "name":"X509Certificate"
+                                          }
+                                       }
+                                    }
+                                 }
+                              },
+                              "_xmlns":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/_xmlns",
+                                 "type":"string",
+                                 "title":"_xmlns schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"_xmlns"
+                              },
+                              "_Id":{
+                                 "id":"http://jsonschema.net/CompNfse/Nfse/Signature/1/_Id",
+                                 "type":"string",
+                                 "title":"_Id schema.",
+                                 "description":"An explanation about the puropose of this instance described by this schema.",
+                                 "name":"_Id"
+                              }
+                           }
+                        }
+                     ]
+                  },
+                  "_xmlns":{
+                     "id":"http://jsonschema.net/CompNfse/Nfse/_xmlns",
+                     "type":"string",
+                     "title":"_xmlns schema.",
+                     "description":"An explanation about the puropose of this instance described by this schema.",
+                     "name":"_xmlns"
+                  },
+                  "_versao":{
+                     "id":"http://jsonschema.net/CompNfse/Nfse/_versao",
+                     "type":"string",
+                     "title":"_versao schema.",
+                     "description":"An explanation about the puropose of this instance described by this schema.",
+                     "name":"_versao"
+                  }
+               },
+               "required":[
+                  "InfNfse",
+                  "Signature",
+                  "_xmlns",
+                  "_versao"
+               ]
+            },
+            "_xmlns":{
+               "id":"http://jsonschema.net/CompNfse/_xmlns",
+               "type":"string",
+               "title":"_xmlns schema.",
+               "description":"An explanation about the puropose of this instance described by this schema.",
+               "name":"_xmlns"
+            }
+         },
+         "required":[
+            "Nfse",
+            "_xmlns"
+         ]
+      }
+   },
+   "required":[
+      "CompNfse"
+   ]
+}
