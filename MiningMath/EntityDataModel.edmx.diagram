@@ -5,22 +5,29 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7791147f3a8f4181909138be8441f641" Name="CurrencyDiagram" >
-        <EntityTypeShape EntityType="EntityDataModel.Currency" Width="1.5" PointX="0.75" PointY="0.875" />
-        <EntityTypeShape EntityType="EntityDataModel.CurrencyCotation" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="EntityDataModel.Currency" Width="1.5" PointX="0.75" PointY="0.875" FillColor="Olive" />
+        <EntityTypeShape EntityType="EntityDataModel.CurrencyCotation" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" FillColor="Olive" />
         <AssociationConnector Association="EntityDataModel.CurrencyCurrencyCotation" />
       </Diagram>
       <Diagram DiagramId="8c5ec25f6a564ec6ba7304e0bdd5f77b" Name="ProjectPlanningDiagram" >
-        <EntityTypeShape EntityType="EntityDataModel.ProjectPlanning" Width="1.625" PointX="7.875" PointY="3.875" />
-        <EntityTypeShape EntityType="EntityDataModel.ProjectPlanningWorkingHours" Width="3.25" PointX="3.125" PointY="6.25" />
+        <EntityTypeShape EntityType="EntityDataModel.ProjectPlanning" Width="1.625" PointX="6.875" PointY="3.875" />
+        <EntityTypeShape EntityType="EntityDataModel.ProjectPlanningWorkingHours" Width="3.25" PointX="0.75" PointY="4.5" />
         <AssociationConnector Association="EntityDataModel.ProjectPlanningProjectPlanningWorkingHours" />
         <EntityTypeShape EntityType="EntityDataModel.Project" Width="1.5" PointX="11.875" PointY="2.625" FillColor="34, 102, 102" />
         <AssociationConnector Association="EntityDataModel.ProjectProjectPlanning" />
-        <EntityTypeShape EntityType="EntityDataModel.Contract" Width="1.5" PointX="2.875" PointY="2.25" FillColor="45, 136, 45" />
+        <EntityTypeShape EntityType="EntityDataModel.Contract" Width="1.5" PointX="2.375" PointY="1.25" FillColor="45, 136, 45" />
         <AssociationConnector Association="EntityDataModel.ContractProjectPlanning" />
         <EntityTypeShape EntityType="EntityDataModel.ProjectPlanningExpenditure" Width="2.75" PointX="7.75" PointY="0.5" />
         <AssociationConnector Association="EntityDataModel.ProjectPlanningProjectPlanningExpenditure" />
         <EntityTypeShape EntityType="EntityDataModel.Customer" Width="1.5" PointX="12.25" PointY="7.25" FillColor="34, 102, 102" />
         <AssociationConnector Association="EntityDataModel.CustomerProject" />
+        <EntityTypeShape EntityType="EntityDataModel.CurrencyCotation" Width="1.5" PointX="9.375" PointY="5.125" FillColor="Olive" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCotationProjectPlanning" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCotationProjectPlanningExpenditure" />
+        <EntityTypeShape EntityType="EntityDataModel.Currency" Width="1.5" PointX="8.875" PointY="9.25" FillColor="Olive" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCurrencyCotation" />
+        <EntityTypeShape EntityType="EntityDataModel.Valores" Width="1.5" PointX="4.25" PointY="8.125" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.ProjectPlanningValores" />
       </Diagram>
       <Diagram DiagramId="3ce328450ed4450d8304df69d1a3ebd0" Name="InvoiceDiagram" >
         <EntityTypeShape EntityType="EntityDataModel.Invoice" Width="1.5" PointX="6.375" PointY="5.375" FillColor="170, 57, 57" />
@@ -34,7 +41,7 @@
         <AssociationConnector Association="EntityDataModel.ProjectInvoice" />
         <EntityTypeShape EntityType="EntityDataModel.InvoiceExpenditure" Width="2.5" PointX="1.75" PointY="6.625" FillColor="170, 57, 57" />
         <AssociationConnector Association="EntityDataModel.InvoiceInvoiceExpenditure" />
-        <EntityTypeShape EntityType="EntityDataModel.User" Width="1.5" PointX="10" PointY="0.5" FillColor="170, 108, 57" />
+        <EntityTypeShape EntityType="EntityDataModel.User" Width="1.5" PointX="10" PointY="0.5" FillColor="255, 192, 192" />
         <AssociationConnector Association="EntityDataModel.UserUserInvoice" />
         <AssociationConnector Association="EntityDataModel.UserUserTimesheet" />
       </Diagram>
@@ -43,9 +50,91 @@
         <EntityTypeShape EntityType="EntityDataModel.UserContract" Width="1.5" PointX="7.75" PointY="0.5" FillColor="45, 136, 45" />
         <EntityTypeShape EntityType="EntityDataModel.Contract" Width="1.5" PointX="6.375" PointY="5.875" FillColor="45, 136, 45" />
         <AssociationConnector Association="EntityDataModel.ContractUserContract" />
-        <EntityTypeShape EntityType="EntityDataModel.User" Width="1.5" PointX="1.875" PointY="4.375" FillColor="170, 108, 57" />
+        <EntityTypeShape EntityType="EntityDataModel.User" Width="1.5" PointX="1.875" PointY="4.375" FillColor="255, 192, 192" />
         <AssociationConnector Association="EntityDataModel.UserUserContract" />
         <AssociationConnector Association="EntityDataModel.UserUserContribution" />
+      </Diagram>
+      <Diagram DiagramId="00f8cbc02a9c45e2ac9785ea4e768161" Name="Diagram" >
+        <EntityTypeShape EntityType="EntityDataModel.UserTimesheet" Width="1.5" PointX="10.5" PointY="15.125" FillColor="170, 57, 57" />
+        <EntityTypeShape EntityType="EntityDataModel.UserInvoice" Width="1.5" PointX="13.5" PointY="15.125" FillColor="170, 57, 57" />
+        <EntityTypeShape EntityType="EntityDataModel.UserContribution" Width="1.5" PointX="5.25" PointY="15.25" FillColor="45, 136, 45" />
+        <EntityTypeShape EntityType="EntityDataModel.UserContract" Width="1.5" PointX="10.5" PointY="7.375" FillColor="45, 136, 45" />
+        <EntityTypeShape EntityType="EntityDataModel.User" Width="1.5" PointX="7.25" PointY="5.5" FillColor="255, 192, 192" />
+        <AssociationConnector Association="EntityDataModel.UserUserContract" />
+        <AssociationConnector Association="EntityDataModel.UserUserContribution" />
+        <AssociationConnector Association="EntityDataModel.UserUserInvoice" />
+        <AssociationConnector Association="EntityDataModel.UserUserTimesheet" />
+        <EntityTypeShape EntityType="EntityDataModel.ProjectPlanningWorkingHours" Width="1.5" PointX="8.375" PointY="11" />
+        <AssociationConnector Association="EntityDataModel.UserProjectPlanningWorkingHours" />
+        <EntityTypeShape EntityType="EntityDataModel.ProjectPlanningExpenditure" Width="1.5" PointX="0.5" PointY="10.25" />
+        <EntityTypeShape EntityType="EntityDataModel.ProjectPlanning" Width="1.5" PointX="5.875" PointY="9.875" />
+        <AssociationConnector Association="EntityDataModel.ProjectPlanningProjectPlanningWorkingHours" />
+        <AssociationConnector Association="EntityDataModel.ProjectPlanningProjectPlanningExpenditure" />
+        <EntityTypeShape EntityType="EntityDataModel.Project" Width="1.5" PointX="5" PointY="2.25" FillColor="34, 102, 102" />
+        <AssociationConnector Association="EntityDataModel.ProjectProjectPlanning" />
+        <EntityTypeShape EntityType="EntityDataModel.InvoiceExpenditure" Width="1.5" PointX="12.5" PointY="19.25" FillColor="170, 57, 57" />
+        <EntityTypeShape EntityType="EntityDataModel.Invoice" Width="1.5" PointX="8.25" PointY="14.25" FillColor="170, 57, 57" />
+        <AssociationConnector Association="EntityDataModel.InvoiceUserInvoice" />
+        <AssociationConnector Association="EntityDataModel.InvoiceUserTimesheet" />
+        <AssociationConnector Association="EntityDataModel.ProjectInvoice" />
+        <AssociationConnector Association="EntityDataModel.InvoiceInvoiceExpenditure" />
+        <EntityTypeShape EntityType="EntityDataModel.Valores" Width="1.5" PointX="7.5" PointY="19.625" FillColor="DarkGoldenrod" />
+        <EntityTypeShape EntityType="EntityDataModel.Customer" Width="1.5" PointX="0.625" PointY="2.25" FillColor="34, 102, 102" />
+        <AssociationConnector Association="EntityDataModel.CustomerProject" />
+        <EntityTypeShape EntityType="EntityDataModel.CurrencyCotation" Width="1.5" PointX="3" PointY="14.875" FillColor="Olive" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCotationInvoice" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCotationUserInvoice" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCotationUserContribution" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCotationProjectPlanning" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCotationProjectPlanningExpenditure" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCotationInvoiceExpenditure" />
+        <EntityTypeShape EntityType="EntityDataModel.Currency" Width="1.5" PointX="0.75" PointY="15.5" FillColor="Olive" />
+        <AssociationConnector Association="EntityDataModel.CurrencyCurrencyCotation" />
+        <EntityTypeShape EntityType="EntityDataModel.Contract" Width="1.5" PointX="12.625" PointY="7.375" FillColor="45, 136, 45" />
+        <AssociationConnector Association="EntityDataModel.ContractUserContract" />
+        <AssociationConnector Association="EntityDataModel.ContractInvoice" />
+        <AssociationConnector Association="EntityDataModel.ContractProjectPlanning" />
+        <EntityTypeShape EntityType="EntityDataModel.Nfse" Width="1.5" PointX="15" PointY="19.125" FillColor="DarkGoldenrod" />
+        <EntityTypeShape EntityType="EntityDataModel.SignatureInfo" Width="2.625" PointX="17.25" PointY="19.75" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.NfseSignatureInfo" />
+        <EntityTypeShape EntityType="EntityDataModel.OrgaoGerador" Width="1.5" PointX="12.75" PointY="22.5" />
+        <AssociationConnector Association="EntityDataModel.OrgaoGeradorNfse" />
+        <EntityTypeShape EntityType="EntityDataModel.RegistroMunicipal" Width="2" PointX="10" PointY="23.75" FillColor="DarkGoldenrod" />
+        <EntityTypeShape EntityType="EntityDataModel.TomadorServico" Width="2.25" PointX="12" PointY="30.625" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.IdentificacaoTomadorTomadorServico" />
+        <EntityTypeShape EntityType="EntityDataModel.EnderecoEntidade" Width="1.5" PointX="0.75" PointY="6" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.EnderecoTomadorServicoTomadorServico" />
+        <EntityTypeShape EntityType="EntityDataModel.PrestadorServico" Width="1.5" PointX="12.75" PointY="25.5" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.RegistroMunicipalPrestadorServico" />
+        <AssociationConnector Association="EntityDataModel.EnderecoPrestadorServico" />
+        <AssociationConnector Association="EntityDataModel.PrestadorServicoNfse" />
+        <AssociationConnector Association="EntityDataModel.TomadorServicoNfse" />
+        <EntityTypeShape EntityType="EntityDataModel.Servico" Width="1.5" PointX="9.75" PointY="20.25" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.ValoresServico" />
+        <AssociationConnector Association="EntityDataModel.ServicoNfse" />
+        <AssociationConnector Association="EntityDataModel.InvoiceNfse" />
+        <AssociationConnector Association="EntityDataModel.ProjectPlanningValores" />
+      </Diagram>
+      <Diagram DiagramId="6852963046c140fdb45462b210594dbc" Name="NFseDiagram" >
+        <EntityTypeShape EntityType="EntityDataModel.EnderecoEntidade" Width="1.5" PointX="0.75" PointY="4.875" FillColor="DarkGoldenrod" />
+        <EntityTypeShape EntityType="EntityDataModel.Nfse" Width="2.375" PointX="8.875" PointY="3.75" FillColor="DarkGoldenrod" />
+        <EntityTypeShape EntityType="EntityDataModel.OrgaoGerador" Width="1.5" PointX="6" PointY="8.625" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.OrgaoGeradorNfse" />
+        <EntityTypeShape EntityType="EntityDataModel.PrestadorServico" Width="1.5" PointX="3" PointY="5" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.EnderecoPrestadorServico" />
+        <AssociationConnector Association="EntityDataModel.PrestadorServicoNfse" />
+        <EntityTypeShape EntityType="EntityDataModel.RegistroMunicipal" Width="2.25" PointX="0.75" PointY="1.125" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.RegistroMunicipalPrestadorServico" />
+        <EntityTypeShape EntityType="EntityDataModel.Servico" Width="2.625" PointX="6" PointY="0.75" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.ServicoNfse" />
+        <EntityTypeShape EntityType="EntityDataModel.SignatureInfo" Width="1.5" PointX="12.875" PointY="4.375" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.NfseSignatureInfo" />
+        <EntityTypeShape EntityType="EntityDataModel.TomadorServico" Width="1.5" PointX="6" PointY="5.25" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.IdentificacaoTomadorTomadorServico" />
+        <AssociationConnector Association="EntityDataModel.EnderecoTomadorServicoTomadorServico" />
+        <AssociationConnector Association="EntityDataModel.TomadorServicoNfse" />
+        <EntityTypeShape EntityType="EntityDataModel.Valores" Width="1.5" PointX="3.75" PointY="8.5" FillColor="DarkGoldenrod" />
+        <AssociationConnector Association="EntityDataModel.ValoresServico" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -120,7 +120,63 @@
             <End Role="CurrencyCotation" EntitySet="CurrencyCotationSet" />
             <End Role="InvoiceExpenditure" EntitySet="InvoiceExpenditureSet" />
           </AssociationSet>
-          <EntitySet Name="InfNfseSet" EntityType="EntityDataModel.InfNfse" />
+          <EntitySet Name="ValoresSet" EntityType="EntityDataModel.Valores" />
+          <EntitySet Name="NfseSet" EntityType="EntityDataModel.Nfse" />
+          <EntitySet Name="SignatureInfoSet" EntityType="EntityDataModel.SignatureInfo" />
+          <AssociationSet Name="NfseSignatureInfo" Association="EntityDataModel.NfseSignatureInfo">
+            <End Role="Nfse" EntitySet="NfseSet" />
+            <End Role="SignatureInfo" EntitySet="SignatureInfoSet" />
+          </AssociationSet>
+          <EntitySet Name="OrgaoGeradorSet" EntityType="EntityDataModel.OrgaoGerador" />
+          <AssociationSet Name="OrgaoGeradorNfse" Association="EntityDataModel.OrgaoGeradorNfse">
+            <End Role="OrgaoGerador" EntitySet="OrgaoGeradorSet" />
+            <End Role="Nfse" EntitySet="NfseSet" />
+          </AssociationSet>
+          <EntitySet Name="RegistroMunicipalSet" EntityType="EntityDataModel.RegistroMunicipal" />
+          <EntitySet Name="TomadorServicoSet" EntityType="EntityDataModel.TomadorServico" />
+          <AssociationSet Name="IdentificacaoTomadorTomadorServico" Association="EntityDataModel.IdentificacaoTomadorTomadorServico">
+            <End Role="IdentificacaoTomador" EntitySet="RegistroMunicipalSet" />
+            <End Role="TomadorServico" EntitySet="TomadorServicoSet" />
+          </AssociationSet>
+          <EntitySet Name="EnderecoEntidadeSet" EntityType="EntityDataModel.EnderecoEntidade" />
+          <AssociationSet Name="EnderecoTomadorServicoTomadorServico" Association="EntityDataModel.EnderecoTomadorServicoTomadorServico">
+            <End Role="EnderecoTomadorServico" EntitySet="EnderecoEntidadeSet" />
+            <End Role="TomadorServico" EntitySet="TomadorServicoSet" />
+          </AssociationSet>
+          <EntitySet Name="PrestadorServicoSet" EntityType="EntityDataModel.PrestadorServico" />
+          <AssociationSet Name="RegistroMunicipalPrestadorServico" Association="EntityDataModel.RegistroMunicipalPrestadorServico">
+            <End Role="RegistroMunicipal" EntitySet="RegistroMunicipalSet" />
+            <End Role="PrestadorServico" EntitySet="PrestadorServicoSet" />
+          </AssociationSet>
+          <AssociationSet Name="EnderecoPrestadorServico" Association="EntityDataModel.EnderecoPrestadorServico">
+            <End Role="EnderecoEntidade" EntitySet="EnderecoEntidadeSet" />
+            <End Role="PrestadorServico" EntitySet="PrestadorServicoSet" />
+          </AssociationSet>
+          <AssociationSet Name="PrestadorServicoNfse" Association="EntityDataModel.PrestadorServicoNfse">
+            <End Role="PrestadorServico" EntitySet="PrestadorServicoSet" />
+            <End Role="Nfse" EntitySet="NfseSet" />
+          </AssociationSet>
+          <AssociationSet Name="TomadorServicoNfse" Association="EntityDataModel.TomadorServicoNfse">
+            <End Role="TomadorServico" EntitySet="TomadorServicoSet" />
+            <End Role="Nfse" EntitySet="NfseSet" />
+          </AssociationSet>
+          <EntitySet Name="ServicoSet" EntityType="EntityDataModel.Servico" />
+          <AssociationSet Name="ValoresServico" Association="EntityDataModel.ValoresServico">
+            <End Role="Valores" EntitySet="ValoresSet" />
+            <End Role="Servico" EntitySet="ServicoSet" />
+          </AssociationSet>
+          <AssociationSet Name="ServicoNfse" Association="EntityDataModel.ServicoNfse">
+            <End Role="Servico" EntitySet="ServicoSet" />
+            <End Role="Nfse" EntitySet="NfseSet" />
+          </AssociationSet>
+          <AssociationSet Name="InvoiceNfse" Association="EntityDataModel.InvoiceNfse">
+            <End Role="Invoice" EntitySet="InvoiceSet" />
+            <End Role="Nfse" EntitySet="NfseSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProjectPlanningValores" Association="EntityDataModel.ProjectPlanningValores">
+            <End Role="ProjectPlanning" EntitySet="ProjectPlanningSet" />
+            <End Role="Valores" EntitySet="ValoresSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -198,6 +254,7 @@
           <NavigationProperty Name="Project" Relationship="EntityDataModel.ProjectInvoice" FromRole="Invoice" ToRole="Project" />
           <Property Name="ProjectId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="InvoiceExpenditure" Relationship="EntityDataModel.InvoiceInvoiceExpenditure" FromRole="Invoice" ToRole="InvoiceExpenditure" />
+          <NavigationProperty Name="Nfse" Relationship="EntityDataModel.InvoiceNfse" FromRole="Invoice" ToRole="Nfse" />
         </EntityType>
         <EntityType Name="Contract">
           <Key>
@@ -406,6 +463,7 @@
           <NavigationProperty Name="Contract" Relationship="EntityDataModel.ContractProjectPlanning" FromRole="ProjectPlanning" ToRole="Contract" />
           <Property Name="ContractId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ProjectPlanningExpenditure" Relationship="EntityDataModel.ProjectPlanningProjectPlanningExpenditure" FromRole="ProjectPlanning" ToRole="ProjectPlanningExpenditure" />
+          <NavigationProperty Name="Valores" Relationship="EntityDataModel.ProjectPlanningValores" FromRole="ProjectPlanning" ToRole="Valores" />
         </EntityType>
         <EntityType Name="ProjectPlanningWorkingHours">
           <Key>
@@ -598,12 +656,269 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="InfNfse">
+        <EntityType Name="Valores">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ValorServicos" Type="String" Nullable="false" />
+          <Property Name="ValorPis" Type="String" Nullable="false" />
+          <Property Name="ValorCofins" Type="String" Nullable="false" />
+          <Property Name="ValorIr" Type="String" Nullable="false" />
+          <Property Name="ValorCsll" Type="String" Nullable="false" />
+          <Property Name="IssRetido" Type="String" Nullable="false" />
+          <Property Name="ValorIss" Type="String" Nullable="false" />
+          <Property Name="ValorIssRetido" Type="String" Nullable="false" />
+          <Property Name="BaseCalculo" Type="String" Nullable="false" />
+          <Property Name="Aliquota" Type="String" Nullable="false" />
+          <Property Name="ISSQN" Type="String" Nullable="false" />
+          <NavigationProperty Name="Servico" Relationship="EntityDataModel.ValoresServico" FromRole="Valores" ToRole="Servico" />
+          <NavigationProperty Name="ProjectPlanning" Relationship="EntityDataModel.ProjectPlanningValores" FromRole="Valores" ToRole="ProjectPlanning" />
         </EntityType>
+        <EntityType Name="Nfse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="SignatureInfo" Relationship="EntityDataModel.NfseSignatureInfo" FromRole="Nfse" ToRole="SignatureInfo" />
+          <Property Name="Numero" Type="String" Nullable="false" />
+          <Property Name="CodigoVerificacao" Type="String" Nullable="false" />
+          <Property Name="DataEmissao" Type="String" Nullable="false" />
+          <Property Name="NaturezaOperacao" Type="String" Nullable="false" />
+          <Property Name="OptanteSimplesNacional" Type="String" Nullable="false" />
+          <Property Name="IncentivadorCultural" Type="String" Nullable="false" />
+          <Property Name="Competencia" Type="String" Nullable="false" />
+          <NavigationProperty Name="OrgaoGerador" Relationship="EntityDataModel.OrgaoGeradorNfse" FromRole="Nfse" ToRole="OrgaoGerador" />
+          <Property Name="OrgaoGeradorId" Nullable="false" Type="Int32" />
+          <Property Name="IdentificacaoTomadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PrestadorServico" Relationship="EntityDataModel.PrestadorServicoNfse" FromRole="Nfse" ToRole="PrestadorServico" />
+          <Property Name="PrestadorServicoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TomadorServico" Relationship="EntityDataModel.TomadorServicoNfse" FromRole="Nfse" ToRole="TomadorServico" />
+          <Property Name="TomadorServicoId" Type="Int32" Nullable="false" />
+          <Property Name="ValorLiquidoNfse" Type="String" Nullable="false" />
+          <NavigationProperty Name="Servico" Relationship="EntityDataModel.ServicoNfse" FromRole="Nfse" ToRole="Servico" />
+          <Property Name="ServicoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Invoice" Relationship="EntityDataModel.InvoiceNfse" FromRole="Nfse" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="SignatureInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CanonicalizationMethod" Type="String" Nullable="false" />
+          <Property Name="SignatureMethod" Type="String" Nullable="false" />
+          <Property Name="Transform" Type="String" Nullable="false" />
+          <Property Name="DigestMethod" Type="String" Nullable="false" />
+          <Property Name="DigestValue" Type="String" Nullable="false" />
+          <Property Name="URI" Type="String" Nullable="false" />
+          <Property Name="SignatureValue" Type="String" Nullable="false" />
+          <Property Name="X509Certificate" Type="String" Nullable="false" />
+          <Property Name="RSAKeyMod" Type="String" Nullable="false" />
+          <Property Name="RSAKeyExp" Type="String" Nullable="false" />
+          <NavigationProperty Name="Nfse" Relationship="EntityDataModel.NfseSignatureInfo" FromRole="SignatureInfo" ToRole="Nfse" />
+          <Property Name="NfseId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="NfseSignatureInfo">
+          <End Type="EntityDataModel.Nfse" Role="Nfse" Multiplicity="1" />
+          <End Type="EntityDataModel.SignatureInfo" Role="SignatureInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nfse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SignatureInfo">
+              <PropertyRef Name="NfseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrgaoGerador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoMunicipio" Type="String" Nullable="false" />
+          <Property Name="UF" Type="String" Nullable="false" />
+          <NavigationProperty Name="Nfse" Relationship="EntityDataModel.OrgaoGeradorNfse" FromRole="OrgaoGerador" ToRole="Nfse" />
+        </EntityType>
+        <Association Name="OrgaoGeradorNfse">
+          <End Type="EntityDataModel.OrgaoGerador" Role="OrgaoGerador" Multiplicity="1" />
+          <End Type="EntityDataModel.Nfse" Role="Nfse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrgaoGerador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nfse">
+              <PropertyRef Name="OrgaoGeradorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RegistroMunicipal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InscricaoMunicipal" Type="String" Nullable="false" />
+          <Property Name="CPF_CNPJ" Type="String" Nullable="false" />
+          <NavigationProperty Name="TomadorServico" Relationship="EntityDataModel.IdentificacaoTomadorTomadorServico" FromRole="IdentificacaoTomador" ToRole="TomadorServico" />
+          <Property Name="RazaoSocial" Type="String" Nullable="false" />
+          <NavigationProperty Name="PrestadorServico" Relationship="EntityDataModel.RegistroMunicipalPrestadorServico" FromRole="RegistroMunicipal" ToRole="PrestadorServico" />
+          <Property Name="NomeFantasia" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TomadorServico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="IdentificacaoTomador" Relationship="EntityDataModel.IdentificacaoTomadorTomadorServico" FromRole="TomadorServico" ToRole="IdentificacaoTomador" />
+          <Property Name="IdentificacaoTomadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EnderecoTomadorServico" Relationship="EntityDataModel.EnderecoTomadorServicoTomadorServico" FromRole="TomadorServico" ToRole="EnderecoTomadorServico" />
+          <Property Name="EnderecoTomadorServicoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Nfse" Relationship="EntityDataModel.TomadorServicoNfse" FromRole="TomadorServico" ToRole="Nfse" />
+        </EntityType>
+        <Association Name="IdentificacaoTomadorTomadorServico">
+          <End Type="EntityDataModel.RegistroMunicipal" Role="IdentificacaoTomador" Multiplicity="1" />
+          <End Type="EntityDataModel.TomadorServico" Role="TomadorServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IdentificacaoTomador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TomadorServico">
+              <PropertyRef Name="IdentificacaoTomadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EnderecoEntidade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Endereco" Type="String" Nullable="false" />
+          <Property Name="Numero" Type="String" Nullable="false" />
+          <Property Name="Complemento" Type="String" Nullable="false" />
+          <Property Name="Bairro" Type="String" Nullable="false" />
+          <Property Name="CodigoMunicipio" Type="String" Nullable="false" />
+          <Property Name="UF" Type="String" Nullable="false" />
+          <Property Name="CEP" Type="String" Nullable="false" />
+          <NavigationProperty Name="TomadorServico" Relationship="EntityDataModel.EnderecoTomadorServicoTomadorServico" FromRole="EnderecoTomadorServico" ToRole="TomadorServico" />
+          <NavigationProperty Name="PrestadorServico" Relationship="EntityDataModel.EnderecoPrestadorServico" FromRole="EnderecoEntidade" ToRole="PrestadorServico" />
+        </EntityType>
+        <Association Name="EnderecoTomadorServicoTomadorServico">
+          <End Type="EntityDataModel.EnderecoEntidade" Role="EnderecoTomadorServico" Multiplicity="1" />
+          <End Type="EntityDataModel.TomadorServico" Role="TomadorServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EnderecoTomadorServico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TomadorServico">
+              <PropertyRef Name="EnderecoTomadorServicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PrestadorServico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="RegistroMunicipal" Relationship="EntityDataModel.RegistroMunicipalPrestadorServico" FromRole="PrestadorServico" ToRole="RegistroMunicipal" />
+          <Property Name="RegistroMunicipalId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EnderecoPrestadorServico" Relationship="EntityDataModel.EnderecoPrestadorServico" FromRole="PrestadorServico" ToRole="EnderecoEntidade" />
+          <Property Name="EnderecoEntidadeId" Type="Int32" Nullable="false" />
+          <Property Name="Telefone" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <NavigationProperty Name="Nfse" Relationship="EntityDataModel.PrestadorServicoNfse" FromRole="PrestadorServico" ToRole="Nfse" />
+        </EntityType>
+        <Association Name="RegistroMunicipalPrestadorServico">
+          <End Type="EntityDataModel.RegistroMunicipal" Role="RegistroMunicipal" Multiplicity="1" />
+          <End Type="EntityDataModel.PrestadorServico" Role="PrestadorServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistroMunicipal">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PrestadorServico">
+              <PropertyRef Name="RegistroMunicipalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EnderecoPrestadorServico">
+          <End Type="EntityDataModel.EnderecoEntidade" Role="EnderecoEntidade" Multiplicity="1" />
+          <End Type="EntityDataModel.PrestadorServico" Role="PrestadorServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EnderecoEntidade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PrestadorServico">
+              <PropertyRef Name="EnderecoEntidadeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PrestadorServicoNfse">
+          <End Type="EntityDataModel.PrestadorServico" Role="PrestadorServico" Multiplicity="1" />
+          <End Type="EntityDataModel.Nfse" Role="Nfse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrestadorServico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nfse">
+              <PropertyRef Name="PrestadorServicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TomadorServicoNfse">
+          <End Type="EntityDataModel.TomadorServico" Role="TomadorServico" Multiplicity="1" />
+          <End Type="EntityDataModel.Nfse" Role="Nfse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TomadorServico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nfse">
+              <PropertyRef Name="TomadorServicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Servico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemListaServico" Type="String" Nullable="false" />
+          <Property Name="CodigoTributacaoMunicipio" Type="String" Nullable="false" />
+          <Property Name="Discriminacao" Type="String" Nullable="false" />
+          <Property Name="CodigoMunicipio" Type="String" Nullable="false" />
+          <NavigationProperty Name="Valores" Relationship="EntityDataModel.ValoresServico" FromRole="Servico" ToRole="Valores" />
+          <Property Name="ValoresId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Nfse" Relationship="EntityDataModel.ServicoNfse" FromRole="Servico" ToRole="Nfse" />
+        </EntityType>
+        <Association Name="ValoresServico">
+          <End Type="EntityDataModel.Valores" Role="Valores" Multiplicity="1" />
+          <End Type="EntityDataModel.Servico" Role="Servico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Valores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Servico">
+              <PropertyRef Name="ValoresId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ServicoNfse">
+          <End Type="EntityDataModel.Servico" Role="Servico" Multiplicity="1" />
+          <End Type="EntityDataModel.Nfse" Role="Nfse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nfse">
+              <PropertyRef Name="ServicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InvoiceNfse">
+          <End Type="EntityDataModel.Invoice" Role="Invoice" Multiplicity="1" />
+          <End Type="EntityDataModel.Nfse" Role="Nfse" Multiplicity="0..1" />
+        </Association>
+        <Association Name="ProjectPlanningValores">
+          <End Type="EntityDataModel.ProjectPlanning" Role="ProjectPlanning" Multiplicity="1" />
+          <End Type="EntityDataModel.Valores" Role="Valores" Multiplicity="0..1" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
