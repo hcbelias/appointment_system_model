@@ -671,7 +671,6 @@
           <Property Name="ValorIssRetido" Type="String" Nullable="false" />
           <Property Name="BaseCalculo" Type="String" Nullable="false" />
           <Property Name="Aliquota" Type="String" Nullable="false" />
-          <Property Name="ISSQN" Type="String" Nullable="false" />
           <NavigationProperty Name="Servico" Relationship="EntityDataModel.ValoresServico" FromRole="Valores" ToRole="Servico" />
           <NavigationProperty Name="ProjectPlanning" Relationship="EntityDataModel.ProjectPlanningValores" FromRole="Valores" ToRole="ProjectPlanning" />
         </EntityType>
